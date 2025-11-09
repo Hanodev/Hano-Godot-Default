@@ -1,0 +1,83 @@
+[gd_scene load_steps=15 format=3 uid="uid://cam4bh1ds81ys"]
+
+[ext_resource type="Script" uid="uid://cwgkwkw5vy8kj" path="res://player/fps_player.gd" id="1_oul6g"]
+[ext_resource type="Shader" uid="uid://e18gni2y2xyt" path="res://assets/shaders/psxview.gdshader" id="2_rkbax"]
+[ext_resource type="Script" uid="uid://bgh05r2yl3poq" path="res://player/state/state_machine.gd" id="3_don88"]
+[ext_resource type="Script" uid="uid://cf7t4e83b6jea" path="res://player/state/state.gd" id="4_555mj"]
+[ext_resource type="Script" uid="uid://bhwyt042aknv3" path="res://player/state/idle_state.gd" id="5_maj5w"]
+[ext_resource type="Script" uid="uid://pat2digs32a6" path="res://player/state/falling_state.gd" id="6_7v1lm"]
+[ext_resource type="Script" uid="uid://d0hls55fwwcev" path="res://player/state/walking_state.gd" id="7_8buut"]
+[ext_resource type="Script" uid="uid://biuc6jgx4dt1b" path="res://player/state/jumping_state.gd" id="8_cm1uh"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_oul6g"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g1dw6"]
+shader = ExtResource("2_rkbax")
+shader_parameter/grain_intensity = 0.1
+shader_parameter/min_lum = 0.0
+shader_parameter/max_lum = 1.0
+shader_parameter/time_scale = 0.5
+shader_parameter/vignette_darkness = 0.5
+shader_parameter/vignette_outer_radius = 0.7
+shader_parameter/vignette_inner_radius = 0.2
+shader_parameter/scanline_intensity = 0.2
+shader_parameter/barrel_distortion = 0.15
+shader_parameter/chromatic_aberration = 0.002000000095
+shader_parameter/crt_vignette_power = 2.0
+shader_parameter/pixel_resolution_x = 1920
+shader_parameter/pixel_resolution_y = 1080
+shader_parameter/enable_color_quantization = true
+shader_parameter/color_quant_steps = 16.000000665
+shader_parameter/warble_amount = 0.002
+shader_parameter/warble_speed = 0.50000002375
+
+[sub_resource type="Resource" id="Resource_nq1uu"]
+script = ExtResource("5_maj5w")
+metadata/_custom_type_script = "uid://bhwyt042aknv3"
+
+[sub_resource type="Resource" id="Resource_wpltu"]
+script = ExtResource("6_7v1lm")
+metadata/_custom_type_script = "uid://pat2digs32a6"
+
+[sub_resource type="Resource" id="Resource_tlaen"]
+script = ExtResource("7_8buut")
+metadata/_custom_type_script = "uid://d0hls55fwwcev"
+
+[sub_resource type="Resource" id="Resource_pxkhy"]
+script = ExtResource("8_cm1uh")
+metadata/_custom_type_script = "uid://biuc6jgx4dt1b"
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_oul6g")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_oul6g")
+
+[node name="CameraPivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5801647, 0)
+
+[node name="CameraHolder" type="Node3D" parent="CameraPivot"]
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot/CameraHolder"]
+unique_name_in_owner = true
+
+[node name="InteractCast" type="RayCast3D" parent="CameraPivot/CameraHolder/Camera3D"]
+unique_name_in_owner = true
+target_position = Vector3(0, 0, -3)
+collide_with_areas = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_g1dw6")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("3_don88")
+states = Array[ExtResource("4_555mj")]([SubResource("Resource_nq1uu"), SubResource("Resource_wpltu"), SubResource("Resource_tlaen"), SubResource("Resource_pxkhy")])
+metadata/_custom_type_script = "uid://bgh05r2yl3poq"
