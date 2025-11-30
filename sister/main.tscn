@@ -1,0 +1,67 @@
+[gd_scene load_steps=8 format=3 uid="uid://rwja68lfdbbh"]
+
+[ext_resource type="PackedScene" uid="uid://cv1tbkwalalj3" path="res://camera/core/camera_system.tscn" id="4_lquwl"]
+[ext_resource type="Texture2D" uid="uid://elda8f46pvqh" path="res://assets/environment/sunset.hdr" id="5_6lqce"]
+[ext_resource type="Shader" uid="uid://djat3t0cvl262" path="res://assets/shaders/sky.gdshader" id="5_ahjt5"]
+[ext_resource type="PackedScene" uid="uid://cam4bh1ds81ys" path="res://player/fps_player.tscn" id="6_6lqce"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aj5xu"]
+shader = ExtResource("5_ahjt5")
+shader_parameter/source_panorama = ExtResource("5_6lqce")
+shader_parameter/add_clouds = true
+shader_parameter/clouds_below = false
+shader_parameter/cloud_scale = 0.67999998480064
+shader_parameter/speed = 0.0770000036575
+shader_parameter/cloud_dark = 0.72999998368304
+shader_parameter/cloud_light = 0.31999999284736
+shader_parameter/cloud_cover = 0.4499999899416
+shader_parameter/cloud_alpha = 9.99999977648
+shader_parameter/sky_tint = 0.0
+shader_parameter/height_offset = 0.18400000874
+shader_parameter/sky_contribution = 1.0
+
+[sub_resource type="Sky" id="Sky_joxlb"]
+sky_material = SubResource("ShaderMaterial_aj5xu")
+radiance_size = 1
+
+[sub_resource type="Environment" id="Environment_4e1sg"]
+background_mode = 2
+background_energy_multiplier = 0.25
+sky = SubResource("Sky_joxlb")
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0.20116313, 0.21449842, 0.23524225, 1)
+fog_sun_scatter = 0.25
+fog_density = 1.0
+fog_sky_affect = 0.5
+fog_depth_begin = 50.0
+volumetric_fog_density = 0.01
+volumetric_fog_sky_affect = 0.25
+
+[node name="FarmSpawn" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_4e1sg")
+
+[node name="Player" parent="." instance=ExtResource("6_6lqce")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5377674, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Player"]
+light_energy = 4.0
+omni_range = 50.0
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+use_collision = true
+size = Vector3(25, 1, 25)
+
+[node name="System" parent="." instance=ExtResource("4_lquwl")]
+
+[node name="Camera3D" type="Camera3D" parent="System"]
+transform = Transform3D(-0.99655247, 0, 0.0829647, 0, 1, 0, -0.0829647, 0, -0.99655247, 0, 11.840841, -20.435188)
+
+[node name="Camera3D2" type="Camera3D" parent="System"]
+transform = Transform3D(0.9999806, 0, 0.006230794, 0, 1, 0, -0.006230794, 0, 0.9999806, 0, 11.840841, 26.202446)
+
+[node name="Camera3D3" type="Camera3D" parent="System"]
+transform = Transform3D(-0.649647, 0, -0.7602359, 0, 1, 0, 0.7602359, 0, -0.649647, -24.82129, 11.840842, -8.5229)

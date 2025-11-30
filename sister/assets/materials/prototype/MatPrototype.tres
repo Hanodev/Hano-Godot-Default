@@ -1,0 +1,21 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://dspbyv21brt3g"]
+
+[ext_resource type="Texture2D" uid="uid://ckr6icugos251" path="res://assets/textures/texture_01.png" id="1_di623"]
+[ext_resource type="Shader" uid="uid://cypkyi1wpjn3a" path="res://assets/shaders/outline3d.gdshader" id="2_fxayj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6dc1d"]
+render_priority = 0
+shader = ExtResource("2_fxayj")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/thickness = 0.1999999955296
+
+[resource]
+next_pass = SubResource("ShaderMaterial_6dc1d")
+albedo_color = Color(0.3894065, 0.40373337, 0.4321134, 1)
+albedo_texture = ExtResource("1_di623")
+metallic_specular = 0.0
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+uv1_triplanar_sharpness = 3.363589
+uv1_world_triplanar = true
+texture_filter = 0

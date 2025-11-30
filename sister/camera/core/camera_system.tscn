@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://cv1tbkwalalj3"]
+
+[ext_resource type="Script" uid="uid://2mv1obf0sadq" path="res://camera/core/camera_system.gd" id="1_k3icl"]
+[ext_resource type="PackedScene" uid="uid://fdean3usbsor" path="res://camera/core/camera_panel.tscn" id="2_byst5"]
+[ext_resource type="Script" uid="uid://dfraq4mh12t1o" path="res://camera/interaction/interactable.gd" id="3_bptsb"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_twlxw"]
+radius = 2.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_bptsb"]
+
+[node name="CameraSystem" type="Node3D"]
+script = ExtResource("1_k3icl")
+
+[node name="CameraPanel" parent="." instance=ExtResource("2_byst5")]
+
+[node name="Interactable" type="Area3D" parent="."]
+script = ExtResource("3_bptsb")
+metadata/_custom_type_script = "uid://dfraq4mh12t1o"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable"]
+shape = SubResource("SphereShape3D_twlxw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Interactable"]
+mesh = SubResource("BoxMesh_bptsb")
+
+[connection signal="cameras_loaded" from="." to="CameraPanel" method="_create_cameras"]
+[connection signal="interacted" from="Interactable" to="." method="_open_panel"]
+[connection signal="unhovered" from="Interactable" to="." method="_hide_panel"]

@@ -1,0 +1,147 @@
+[gd_scene load_steps=25 format=3 uid="uid://bek4tsuuhptye"]
+
+[ext_resource type="Script" uid="uid://bqga1jibk52wc" path="res://player/tps_player.gd" id="1_y6ouk"]
+[ext_resource type="Shader" uid="uid://e18gni2y2xyt" path="res://assets/shaders/psx.gdshader" id="2_eygyk"]
+[ext_resource type="PackedScene" uid="uid://km7bnuk4y3a8" path="res://player/assets/model/AnimationLibraryCharacter.glb" id="3_50p0b"]
+[ext_resource type="Shader" uid="uid://cypkyi1wpjn3a" path="res://assets/shaders/outline.gdshader" id="4_7sn1k"]
+[ext_resource type="Shader" uid="uid://bms1iaan1jwsb" path="res://assets/shaders/sketch.gdshader" id="4_tlaen"]
+[ext_resource type="Script" uid="uid://iiygwv4p7j4i" path="res://player/animation_player.gd" id="5_wpltu"]
+[ext_resource type="Script" uid="uid://bgh05r2yl3poq" path="res://player/state/state_machine.gd" id="5_y6ouk"]
+[ext_resource type="Script" uid="uid://cf7t4e83b6jea" path="res://player/state/state.gd" id="6_4bl3o"]
+[ext_resource type="Script" uid="uid://bhwyt042aknv3" path="res://player/state/idle_state.gd" id="6_eygyk"]
+[ext_resource type="Script" uid="uid://pat2digs32a6" path="res://player/state/falling_state.gd" id="8_68sij"]
+[ext_resource type="Script" uid="uid://d0hls55fwwcev" path="res://player/state/walking_state.gd" id="9_68sij"]
+[ext_resource type="Script" uid="uid://biuc6jgx4dt1b" path="res://player/state/jumping_state.gd" id="10_nq1uu"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_oul6g"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g1dw6"]
+shader = ExtResource("2_eygyk")
+shader_parameter/grain_intensity = 0.1
+shader_parameter/min_lum = 0.0
+shader_parameter/max_lum = 1.0
+shader_parameter/time_scale = 0.5
+shader_parameter/vignette_darkness = 0.5
+shader_parameter/vignette_outer_radius = 0.7
+shader_parameter/vignette_inner_radius = 0.2
+shader_parameter/scanline_intensity = 0.2
+shader_parameter/barrel_distortion = 0.15
+shader_parameter/chromatic_aberration = 0.002000000095
+shader_parameter/crt_vignette_power = 2.0
+shader_parameter/pixel_resolution_x = 1920
+shader_parameter/pixel_resolution_y = 1080
+shader_parameter/enable_color_quantization = true
+shader_parameter/color_quant_steps = 16.000000665
+shader_parameter/warble_amount = 0.002
+shader_parameter/warble_speed = 0.50000002375
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_pxkhy"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_hcvsr"]
+noise = SubResource("FastNoiseLite_pxkhy")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3vf6w"]
+render_priority = 0
+shader = ExtResource("4_tlaen")
+shader_parameter/outline_noise_tex = SubResource("NoiseTexture2D_hcvsr")
+shader_parameter/outline_color = Color(0.86036915, 0.8603692, 0.8603692, 1)
+shader_parameter/scissor_value = 0.5
+shader_parameter/uv_scale = Vector2(1, 1)
+shader_parameter/outline_size = 0.1
+shader_parameter/offset_fres = 0.3
+shader_parameter/fps = 5.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r8tqx"]
+render_priority = 0
+shader = ExtResource("4_7sn1k")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/thickness = 0.00999999977648
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wpltu"]
+next_pass = SubResource("ShaderMaterial_r8tqx")
+no_depth_test = true
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tlaen"]
+no_depth_test = true
+shading_mode = 0
+albedo_color = Color(0.77997303, 0, 1, 1)
+
+[sub_resource type="Resource" id="Resource_nq1uu"]
+script = ExtResource("6_eygyk")
+metadata/_custom_type_script = "uid://bhwyt042aknv3"
+
+[sub_resource type="Resource" id="Resource_wpltu"]
+script = ExtResource("8_68sij")
+metadata/_custom_type_script = "uid://pat2digs32a6"
+
+[sub_resource type="Resource" id="Resource_tlaen"]
+script = ExtResource("9_68sij")
+metadata/_custom_type_script = "uid://d0hls55fwwcev"
+
+[sub_resource type="Resource" id="Resource_pxkhy"]
+script = ExtResource("10_nq1uu")
+metadata/_custom_type_script = "uid://biuc6jgx4dt1b"
+
+[node name="Player" type="CharacterBody3D"]
+collision_layer = 32769
+script = ExtResource("1_y6ouk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_oul6g")
+
+[node name="CameraPivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5801647, 0)
+
+[node name="CameraHolder" type="Node3D" parent="CameraPivot"]
+
+[node name="SpringArm3D" type="SpringArm3D" parent="CameraPivot/CameraHolder"]
+spring_length = 2.0
+
+[node name="Marker3D" type="Marker3D" parent="CameraPivot/CameraHolder/SpringArm3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.5)
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot/CameraHolder/SpringArm3D"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.5)
+current = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_g1dw6")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Model" parent="." instance=ExtResource("3_50p0b")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, -1, 0)
+
+[node name="Light" type="SpotLight3D" parent="Model/Rig/Skeleton3D" index="0"]
+transform = Transform3D(1, -2.9139185e-08, -1.6984643e-07, 2.9139159e-08, -0.9428162, 0.33331317, -1.6984643e-07, -0.33331317, -0.9428162, 0, 2.127682, 0)
+light_energy = 16.0
+spot_range = 45.0
+spot_angle_attenuation = 0.030185506
+
+[node name="Mannequin" parent="Model/Rig/Skeleton3D" index="1"]
+material_overlay = SubResource("ShaderMaterial_3vf6w")
+surface_material_override/0 = SubResource("StandardMaterial3D_wpltu")
+surface_material_override/1 = SubResource("StandardMaterial3D_tlaen")
+
+[node name="AnimationPlayer" parent="Model" index="1"]
+playback_auto_capture_ease_type = 2
+playback_default_blend_time = 0.5
+speed_scale = 2.0
+script = ExtResource("5_wpltu")
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("5_y6ouk")
+states = Array[ExtResource("6_4bl3o")]([SubResource("Resource_nq1uu"), SubResource("Resource_wpltu"), SubResource("Resource_tlaen"), SubResource("Resource_pxkhy")])
+metadata/_custom_type_script = "uid://bgh05r2yl3poq"
+
+[connection signal="state_changed" from="StateMachine" to="Model/AnimationPlayer" method="_on_state_machine_state_changed"]
+
+[editable path="Model"]

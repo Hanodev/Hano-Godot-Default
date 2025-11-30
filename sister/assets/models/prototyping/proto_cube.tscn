@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4yymoprjnrij"]
+
+[ext_resource type="Material" uid="uid://y7uk6atteyhm" path="res://assets/materials/prototype/MatPrototypeOrange.tres" id="1_j607j"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hs78w"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_puecv"]
+material = ExtResource("1_j607j")
+
+[node name="ProtoCube" type="RigidBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_hs78w")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+mesh = SubResource("BoxMesh_puecv")
