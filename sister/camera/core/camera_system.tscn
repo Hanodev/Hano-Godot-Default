@@ -4,8 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://fdean3usbsor" path="res://camera/core/camera_panel.tscn" id="2_byst5"]
 [ext_resource type="Script" uid="uid://dfraq4mh12t1o" path="res://camera/interaction/interactable.gd" id="3_bptsb"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_twlxw"]
-radius = 2.0
+[sub_resource type="BoxShape3D" id="BoxShape3D_bptsb"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_bptsb"]
 
@@ -19,7 +18,7 @@ script = ExtResource("3_bptsb")
 metadata/_custom_type_script = "uid://dfraq4mh12t1o"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable"]
-shape = SubResource("SphereShape3D_twlxw")
+shape = SubResource("BoxShape3D_bptsb")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Interactable"]
 mesh = SubResource("BoxMesh_bptsb")

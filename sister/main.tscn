@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://rwja68lfdbbh"]
 
+[ext_resource type="PackedScene" uid="uid://crm5figtxs1ag" path="res://camera/room/surveillance_room.tscn" id="3_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://cv1tbkwalalj3" path="res://camera/core/camera_system.tscn" id="4_lquwl"]
 [ext_resource type="Texture2D" uid="uid://elda8f46pvqh" path="res://assets/environment/sunset.hdr" id="5_6lqce"]
 [ext_resource type="Shader" uid="uid://djat3t0cvl262" path="res://assets/shaders/sky.gdshader" id="5_ahjt5"]
-[ext_resource type="PackedScene" uid="uid://cam4bh1ds81ys" path="res://player/fps_player.tscn" id="6_6lqce"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_aj5xu"]
 shader = ExtResource("5_ahjt5")
@@ -43,25 +43,16 @@ volumetric_fog_sky_affect = 0.25
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_4e1sg")
 
-[node name="Player" parent="." instance=ExtResource("6_6lqce")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5377674, 0)
+[node name="SurveillanceRoom" parent="." instance=ExtResource("3_1bvp3")]
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Player"]
-light_energy = 4.0
-omni_range = 50.0
+[node name="System" parent="SurveillanceRoom" instance=ExtResource("4_lquwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -3)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
-use_collision = true
-size = Vector3(25, 1, 25)
-
-[node name="System" parent="." instance=ExtResource("4_lquwl")]
-
-[node name="Camera3D" type="Camera3D" parent="System"]
+[node name="Camera3D" type="Camera3D" parent="SurveillanceRoom/System"]
 transform = Transform3D(-0.99655247, 0, 0.0829647, 0, 1, 0, -0.0829647, 0, -0.99655247, 0, 11.840841, -20.435188)
 
-[node name="Camera3D2" type="Camera3D" parent="System"]
+[node name="Camera3D2" type="Camera3D" parent="SurveillanceRoom/System"]
 transform = Transform3D(0.9999806, 0, 0.006230794, 0, 1, 0, -0.006230794, 0, 0.9999806, 0, 11.840841, 26.202446)
 
-[node name="Camera3D3" type="Camera3D" parent="System"]
+[node name="Camera3D3" type="Camera3D" parent="SurveillanceRoom/System"]
 transform = Transform3D(-0.649647, 0, -0.7602359, 0, 1, 0, 0.7602359, 0, -0.649647, -24.82129, 11.840842, -8.5229)

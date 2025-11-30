@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://crm5figtxs1ag"]
+[gd_scene load_steps=26 format=4 uid="uid://crm5figtxs1ag"]
 
 [ext_resource type="Material" uid="uid://buwspelgv4qcg" path="res://assets/materials/prototype/MatPrototypeNoOutline.tres" id="1_2am75"]
 [ext_resource type="PackedScene" uid="uid://1081g1d8f2ni" path="res://stages/interiors/Scenes/Walls/wall_3m.tscn" id="2_jeehx"]
@@ -7,10 +7,68 @@
 [ext_resource type="PackedScene" uid="uid://cb070rar461wt" path="res://stages/interiors/Scenes/Walls/wall_pillar_b.tscn" id="5_yyflg"]
 [ext_resource type="PackedScene" uid="uid://gs15fxigum5x" path="res://stages/interiors/Scenes/Walls/wall_3m_door_a.tscn" id="6_wjju7"]
 [ext_resource type="PackedScene" uid="uid://cam4bh1ds81ys" path="res://player/fps_player.tscn" id="7_mhi0n"]
-[ext_resource type="Texture2D" uid="uid://elda8f46pvqh" path="res://assets/environment/sunset.hdr" id="8_0fycy"]
 [ext_resource type="PackedScene" uid="uid://b5qju4mcr53wp" path="res://stages/interiors/Scenes/Floor/floor_3x_3.tscn" id="9_cqiwj"]
 [ext_resource type="Material" uid="uid://blggib5lan34i" path="res://stages/interiors/Materials/Surface_Floor_A_A_Mat.tres" id="10_llmke"]
 [ext_resource type="Material" uid="uid://k107765ilw3v" path="res://stages/interiors/Materials/Surface_Floor_B_Mat.tres" id="11_4e2pb"]
+[ext_resource type="PackedScene" uid="uid://c6ct1r0tl8uok" path="res://stages/interiors/Scenes/Floor/floor_ceiling_3x_3.tscn" id="12_llmke"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_rtcox"]
+_surfaces = [{
+"aabb": AABB(-1.5, -1.96701e-07, -1.5, 3, 1e-05, 3),
+"format": 34896613377,
+"index_count": 54,
+"index_data": PackedByteArray("DAABAAIAAwACAAQAAwAMAAIABQAMAAMADAANAAEACQABAA0ACQANAAgABQAOAAwADgANAAwABgAOAAUABgAAAA4ADgAPAA0ACAANAA8AAAAPAA4ACAAPAAoAAAAHAA8ACgAPAAcACgAHAAsA"),
+"lods": [1e-10, PackedByteArray("AAABAAIAAwAAAAIAAwACAAQABQAAAAMABgAAAAUAAAAHAAEACAABAAcACQABAAgACAAHAAoACgAHAAsA")],
+"name": "Surface_Floor_A",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("qqoAAP//AABVVbYGAAAAAKqqtgYAAAAA//95BFVVAAD//7YGAAAAAP//PAKqqgAA//8AAP//AABVVQAA//8AAAAAeQRVVQAAAAC2BgAAAAAAADwCqqoAAAAAAAD//wAAqqp5BFVVAABVVXkEVVUAAKqqPAKqqgAAVVU8AqqqAAA=")
+}, {
+"aabb": AABB(-1.5, 2.8, -1.5, 3, 1e-05, 3),
+"format": 34896613377,
+"index_count": 54,
+"index_data": PackedByteArray("DAAIAA0ABwANAAgABwAGAA0ADAAKAAgACQAKAAwACQALAAoAAQAJAAwAAQAMAA4ADgAMAA0AAAABAA4AAAAOAAIADgANAA8AAgAOAA8ABgAPAA0AAgAPAAMABgAEAA8ABAADAA8ABAAFAAMA"),
+"lods": [2.13869e-10, PackedByteArray("AAABAAIAAgABAAMABAAFAAMABAADAAEABgAEAAEABgABAAcAAQAIAAcAAQAJAAgACQAKAAgACQALAAoA")],
+"name": "Surface_Ceiling_A",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("//8AAP//AAD//xoGqqoAAKqqAAD//wAAVVUAAP//AAAAABoGqqoAAAAAAAD//wAAAAAaBlVVAAAAABoGAAAAAFVVGgYAAAAA//8aBlVVAACqqhoGAAAAAP//GgYAAAAAqqoaBlVVAABVVRoGVVUAAKqqGgaqqgAAVVUaBqqqAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_344ht"]
+resource_name = "Interiors_A_FloorCeiling_3x3"
+_surfaces = [{
+"aabb": AABB(-1.5, -1.96701e-07, -1.5, 3, 1e-05, 3),
+"attribute_data": PackedByteArray("qqoAAFVV//+qqv////+qqv///////1VV//8AAFVVAAAAAKqqAAD//wAAVVUAAAAAqaqqqlRVqqqpqlVVVFVVVQ=="),
+"format": 34896613399,
+"index_count": 54,
+"index_data": PackedByteArray("DAABAAIAAwACAAQAAwAMAAIABQAMAAMADAANAAEACQABAA0ACQANAAgABQAOAAwADgANAAwABgAOAAUABgAAAA4ADgAPAA0ACAANAA8AAAAPAA4ACAAPAAoAAAAHAA8ACgAPAAcACgAHAAsA"),
+"lods": [1e-10, PackedByteArray("AAABAAIAAwAAAAIAAwACAAQABQAAAAMABgAAAAUAAAAHAAEACAABAAcACQABAAgACAAHAAoACgAHAAsA")],
+"material": ExtResource("10_llmke"),
+"name": "Surface_Floor_A",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("qqoAAP///z9VVbYGAAD/P6qqtgYAAP8///95BFVV/z///7YGAAD/P///PAKqqv8///8AAP///z9VVQAA////PwAAeQRVVf8/AAC2BgAA/z8AADwCqqr/PwAAAAD///8/qqp5BFVV/z9VVXkEVVX/P6qqPAKqqv8/VVU8Aqqq/z////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/")
+}, {
+"aabb": AABB(-1.5, 2.8, -1.5, 3, 1e-05, 3),
+"attribute_data": PackedByteArray("//8AAP//VVWqqgAAVVUAAAAAVVUAAAAAAACqqgAA//9VVf////+qqqqq////////qaqqqlRVqqqpqlVVVFVVVQ=="),
+"format": 34896613399,
+"index_count": 54,
+"index_data": PackedByteArray("DAAIAA0ABwANAAgABwAGAA0ADAAKAAgACQAKAAwACQALAAoAAQAJAAwAAQAMAA4ADgAMAA0AAAABAA4AAAAOAAIADgANAA8AAgAOAA8ABgAPAA0AAgAPAAMABgAEAA8ABAADAA8ABAAFAAMA"),
+"lods": [2.13869e-10, PackedByteArray("AAABAAIAAgABAAMABAAFAAMABAADAAEABgAEAAEABgABAAcAAQAIAAcAAQAJAAgACQAKAAgACQALAAoA")],
+"material": ExtResource("11_4e2pb"),
+"name": "Surface_Ceiling_A",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("//8AAP///7///xoGqqr/v6qqAAD///+/VVUAAP///78AABoGqqr/vwAAAAD///+/AAAaBlVV/78AABoGAAD/v1VVGgYAAP+///8aBlVV/7+qqhoGAAD/v///GgYAAP+/qqoaBlVV/79VVRoGVVX/v6qqGgaqqv+/VVUaBqqq/78AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_rtcox")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_3131p"]
 _surfaces = [{
@@ -237,118 +295,134 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ddn6y")
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ege0t"]
-sky_cover = ExtResource("8_0fycy")
-energy_multiplier = 0.15
-
-[sub_resource type="Sky" id="Sky_ninhg"]
-sky_material = SubResource("ProceduralSkyMaterial_ege0t")
-
-[sub_resource type="Environment" id="Environment_cqiwj"]
-background_mode = 2
-sky = SubResource("Sky_ninhg")
-ssao_enabled = true
-glow_enabled = true
-fog_enabled = true
-fog_mode = 1
-fog_light_color = Color(0.076981135, 0.08793869, 0.10498918, 1)
-fog_density = 1.0
-fog_depth_begin = 0.0
-fog_depth_end = 25.0
-volumetric_fog_enabled = true
-
 [node name="SurveillanceRoom" type="Node3D"]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+visible = false
 use_collision = true
 size = Vector3(25, 1, 25)
 material = ExtResource("1_2am75")
 
 [node name="Room" type="Node3D" parent="."]
 
-[node name="Walls" type="Node3D" parent="Room"]
-metadata/_edit_group_ = true
+[node name="Floor" type="Node3D" parent="Room"]
 
-[node name="wall_3m" type="MeshInstance3D" parent="Room/Walls" instance=ExtResource("2_jeehx")]
+[node name="floor_ceiling_3x_3" type="MeshInstance3D" parent="Room/Floor" instance=ExtResource("12_llmke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, -1.5)
+mesh = SubResource("ArrayMesh_344ht")
+skeleton = NodePath("")
+
+[node name="floor_ceiling_3x_3-n1" type="MeshInstance3D" parent="Room/Floor" instance=ExtResource("12_llmke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, -4.5)
+mesh = SubResource("ArrayMesh_344ht")
+skeleton = NodePath("")
+
+[node name="floor_ceiling_3x_3-n2" type="MeshInstance3D" parent="Room/Floor" instance=ExtResource("12_llmke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -4.5)
+mesh = SubResource("ArrayMesh_344ht")
+skeleton = NodePath("")
+
+[node name="floor_ceiling_3x_3-n3" type="MeshInstance3D" parent="Room/Floor" instance=ExtResource("12_llmke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -1.5)
+mesh = SubResource("ArrayMesh_344ht")
+skeleton = NodePath("")
+
+[node name="floor_ceiling_3x_4" parent="Room/Floor" instance=ExtResource("12_llmke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, -1.5)
+
+[node name="floor_ceiling_3x_3-n4" parent="Room/Floor" instance=ExtResource("12_llmke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, -4.5)
+
+[node name="floor_ceiling_3x_3-n5" parent="Room/Floor" instance=ExtResource("12_llmke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, -4.5)
+
+[node name="floor_ceiling_3x_3-n6" parent="Room/Floor" instance=ExtResource("12_llmke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, -1.5)
+
+[node name="floor_ceiling_3x_3-n7" parent="Room/Floor" instance=ExtResource("12_llmke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 1.5)
+
+[node name="floor_ceiling_3x_3-n8" parent="Room/Floor" instance=ExtResource("12_llmke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 4.5)
+
+[node name="floor_ceiling_3x_5" parent="Room/Floor" instance=ExtResource("12_llmke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 4.5)
+
+[node name="floor_ceiling_3x_3-n9" parent="Room/Floor" instance=ExtResource("12_llmke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 1.5)
+
+[node name="floor_ceiling_3x_3-n10" parent="Room/Floor" instance=ExtResource("12_llmke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, 1.5)
+
+[node name="floor_ceiling_3x_3-n11" parent="Room/Floor" instance=ExtResource("12_llmke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, 4.5)
+
+[node name="Walls" type="Node3D" parent="Room"]
+
+[node name="wall_3m" parent="Room/Walls" instance=ExtResource("2_jeehx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
 mesh = SubResource("ArrayMesh_fxbb1")
-skeleton = NodePath("")
 
-[node name="wall_3m-n1" type="MeshInstance3D" parent="Room/Walls" instance=ExtResource("2_jeehx")]
+[node name="wall_3m-n1" parent="Room/Walls" instance=ExtResource("2_jeehx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 6)
 mesh = SubResource("ArrayMesh_fxbb1")
-skeleton = NodePath("")
 
-[node name="wall_3m-n2" type="MeshInstance3D" parent="Room/Walls" instance=ExtResource("2_jeehx")]
+[node name="wall_3m-n2" parent="Room/Walls" instance=ExtResource("2_jeehx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 6)
 mesh = SubResource("ArrayMesh_fxbb1")
-skeleton = NodePath("")
 
-[node name="wall_3m-n3" type="MeshInstance3D" parent="Room/Walls" instance=ExtResource("2_jeehx")]
+[node name="wall_3m-n3" parent="Room/Walls" instance=ExtResource("2_jeehx")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4.5, 0, 4.5)
 mesh = SubResource("ArrayMesh_fxbb1")
-skeleton = NodePath("")
 
-[node name="wall_3m-n4" type="MeshInstance3D" parent="Room/Walls" instance=ExtResource("2_jeehx")]
+[node name="wall_3m-n4" parent="Room/Walls" instance=ExtResource("2_jeehx")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4.5, 0, 1.5)
 mesh = SubResource("ArrayMesh_fxbb1")
-skeleton = NodePath("")
 
-[node name="wall_3m-n5" type="MeshInstance3D" parent="Room/Walls" instance=ExtResource("2_jeehx")]
+[node name="wall_3m-n5" parent="Room/Walls" instance=ExtResource("2_jeehx")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4.5, 0, -1.5)
 mesh = SubResource("ArrayMesh_fxbb1")
-skeleton = NodePath("")
 
-[node name="wall_3m-n6" type="MeshInstance3D" parent="Room/Walls" instance=ExtResource("2_jeehx")]
+[node name="wall_3m-n6" parent="Room/Walls" instance=ExtResource("2_jeehx")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4.5, 0, -4.5)
 mesh = SubResource("ArrayMesh_fxbb1")
-skeleton = NodePath("")
 
-[node name="wall_3m_1_side" type="MeshInstance3D" parent="Room/Walls" instance=ExtResource("4_71qmj")]
+[node name="wall_3m_1_side" parent="Room/Walls" instance=ExtResource("4_71qmj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -6)
 mesh = SubResource("ArrayMesh_vq60c")
-skeleton = NodePath("")
 
-[node name="wall_3m_1_side-n2" type="MeshInstance3D" parent="Room/Walls" instance=ExtResource("4_71qmj")]
+[node name="wall_3m_1_side-n2" parent="Room/Walls" instance=ExtResource("4_71qmj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -6)
 mesh = SubResource("ArrayMesh_vq60c")
-skeleton = NodePath("")
 
-[node name="wall_3m_1_side-n3" type="MeshInstance3D" parent="Room/Walls" instance=ExtResource("4_71qmj")]
+[node name="wall_3m_1_side-n3" parent="Room/Walls" instance=ExtResource("4_71qmj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, -6)
 mesh = SubResource("ArrayMesh_vq60c")
-skeleton = NodePath("")
 
-[node name="wall_3m_1_side-n4" type="MeshInstance3D" parent="Room/Walls" instance=ExtResource("4_71qmj")]
+[node name="wall_3m_1_side-n4" parent="Room/Walls" instance=ExtResource("4_71qmj")]
 transform = Transform3D(0.00999978, 0, -0.99995, 0, 1, 0, 0.99995, 0, 0.00999978, 6, 0, -4.5)
 mesh = SubResource("ArrayMesh_vq60c")
-skeleton = NodePath("")
 
-[node name="wall_3m_1_side-n5" type="MeshInstance3D" parent="Room/Walls" instance=ExtResource("4_71qmj")]
+[node name="wall_3m_1_side-n5" parent="Room/Walls" instance=ExtResource("4_71qmj")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 6, 0, -1.5)
 mesh = SubResource("ArrayMesh_vq60c")
-skeleton = NodePath("")
 
-[node name="wall_3m_1_side-n6" type="MeshInstance3D" parent="Room/Walls" instance=ExtResource("4_71qmj")]
+[node name="wall_3m_1_side-n6" parent="Room/Walls" instance=ExtResource("4_71qmj")]
 transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 4.5, 0, 0)
 mesh = SubResource("ArrayMesh_yyflg")
-skeleton = NodePath("")
 
-[node name="wall_3m_1_side-n7" type="MeshInstance3D" parent="Room/Walls" instance=ExtResource("4_71qmj")]
+[node name="wall_3m_1_side-n7" parent="Room/Walls" instance=ExtResource("4_71qmj")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3, 0, 1.5)
 mesh = SubResource("ArrayMesh_yyflg")
-skeleton = NodePath("")
 
-[node name="wall_3m_1_side-n8" type="MeshInstance3D" parent="Room/Walls" instance=ExtResource("4_71qmj")]
+[node name="wall_3m_1_side-n8" parent="Room/Walls" instance=ExtResource("4_71qmj")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3, 0, 4.5)
 mesh = SubResource("ArrayMesh_yyflg")
-skeleton = NodePath("")
 
-[node name="wall_pillar_b" type="MeshInstance3D" parent="Room/Walls" instance=ExtResource("5_yyflg")]
+[node name="wall_pillar_b" parent="Room/Walls" instance=ExtResource("5_yyflg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
 mesh = SubResource("ArrayMesh_tpjbu")
-skeleton = NodePath("")
 
 [node name="wall_pillar_b2" parent="Room/Walls" instance=ExtResource("5_yyflg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 6)
@@ -360,152 +434,71 @@ mesh = SubResource("ArrayMesh_tpjbu")
 [node name="wall_pillar_b3" parent="Room/Walls" instance=ExtResource("5_yyflg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
 
-[node name="wall_3m_door_a" type="MeshInstance3D" parent="Room/Walls" instance=ExtResource("6_wjju7")]
+[node name="wall_pillar_b5" parent="Room/Walls" instance=ExtResource("5_yyflg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -3)
+
+[node name="wall_3m_door_a" parent="Room/Walls" instance=ExtResource("6_wjju7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -6)
 mesh = SubResource("ArrayMesh_gk5l6")
-skeleton = NodePath("")
 
 [node name="Ceiling" type="Node3D" parent="Room"]
 metadata/_edit_group_ = true
 
-[node name="floor_3x_3" type="MeshInstance3D" parent="Room/Ceiling" instance=ExtResource("9_cqiwj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 3, 4.5)
-mesh = SubResource("ArrayMesh_by115")
-skeleton = NodePath("")
-
-[node name="floor_3x_3-n1" type="MeshInstance3D" parent="Room/Ceiling" instance=ExtResource("9_cqiwj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 3, 1.5)
-mesh = SubResource("ArrayMesh_by115")
-skeleton = NodePath("")
-
-[node name="floor_3x_3-n2" type="MeshInstance3D" parent="Room/Ceiling" instance=ExtResource("9_cqiwj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 3, -1.5)
-mesh = SubResource("ArrayMesh_by115")
-skeleton = NodePath("")
-
-[node name="floor_3x_3-n3" type="MeshInstance3D" parent="Room/Ceiling" instance=ExtResource("9_cqiwj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 3, -4.5)
-mesh = SubResource("ArrayMesh_by115")
-skeleton = NodePath("")
-
-[node name="floor_3x_3-n4" type="MeshInstance3D" parent="Room/Ceiling" instance=ExtResource("9_cqiwj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 3, -4.5)
-mesh = SubResource("ArrayMesh_by115")
-skeleton = NodePath("")
-
-[node name="floor_3x_3-n5" type="MeshInstance3D" parent="Room/Ceiling" instance=ExtResource("9_cqiwj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 3, -1.5)
-mesh = SubResource("ArrayMesh_by115")
-skeleton = NodePath("")
-
-[node name="floor_3x_3-n6" type="MeshInstance3D" parent="Room/Ceiling" instance=ExtResource("9_cqiwj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 3, 1.5)
-mesh = SubResource("ArrayMesh_by115")
-skeleton = NodePath("")
-
-[node name="floor_3x_3-n7" type="MeshInstance3D" parent="Room/Ceiling" instance=ExtResource("9_cqiwj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 3, 4.5)
-mesh = SubResource("ArrayMesh_by115")
-skeleton = NodePath("")
-
-[node name="floor_3x_3-n8" type="MeshInstance3D" parent="Room/Ceiling" instance=ExtResource("9_cqiwj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 3, 4.5)
-mesh = SubResource("ArrayMesh_by115")
-skeleton = NodePath("")
-
-[node name="floor_3x_3-n9" type="MeshInstance3D" parent="Room/Ceiling" instance=ExtResource("9_cqiwj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 3, 1.5)
-mesh = SubResource("ArrayMesh_by115")
-skeleton = NodePath("")
-
-[node name="floor_3x_3-n10" type="MeshInstance3D" parent="Room/Ceiling" instance=ExtResource("9_cqiwj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 3, -1.5)
-mesh = SubResource("ArrayMesh_by115")
-skeleton = NodePath("")
-
-[node name="floor_3x_3-n11" type="MeshInstance3D" parent="Room/Ceiling" instance=ExtResource("9_cqiwj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 3, -4.5)
-mesh = SubResource("ArrayMesh_by115")
-skeleton = NodePath("")
-
-[node name="floor_3x_3-n12" type="MeshInstance3D" parent="Room/Ceiling" instance=ExtResource("9_cqiwj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 3, -1.5)
-mesh = SubResource("ArrayMesh_by115")
-skeleton = NodePath("")
-
-[node name="floor_3x_3-n13" type="MeshInstance3D" parent="Room/Ceiling" instance=ExtResource("9_cqiwj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 3, -4.5)
-mesh = SubResource("ArrayMesh_by115")
-skeleton = NodePath("")
-
-[node name="Floor" type="Node3D" parent="Room"]
-transform = Transform3D(1.3113416e-07, -8.742278e-08, 1, 0, -1, -8.742278e-08, 1, 1.1464113e-14, -1.3113416e-07, 1.5, 3, -1)
-metadata/_edit_group_ = true
-
-[node name="floor_3x_3" parent="Room/Floor" instance=ExtResource("9_cqiwj")]
+[node name="floor_3x_3" parent="Room/Ceiling" instance=ExtResource("9_cqiwj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 3, 4.5)
 mesh = SubResource("ArrayMesh_by115")
 
-[node name="floor_3x_3-n1" parent="Room/Floor" instance=ExtResource("9_cqiwj")]
+[node name="floor_3x_3-n1" parent="Room/Ceiling" instance=ExtResource("9_cqiwj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 3, 1.5)
 mesh = SubResource("ArrayMesh_by115")
 
-[node name="floor_3x_3-n2" parent="Room/Floor" instance=ExtResource("9_cqiwj")]
+[node name="floor_3x_3-n2" parent="Room/Ceiling" instance=ExtResource("9_cqiwj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 3, -1.5)
 mesh = SubResource("ArrayMesh_by115")
 
-[node name="floor_3x_3-n3" parent="Room/Floor" instance=ExtResource("9_cqiwj")]
+[node name="floor_3x_3-n3" parent="Room/Ceiling" instance=ExtResource("9_cqiwj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 3, -4.5)
 mesh = SubResource("ArrayMesh_by115")
 
-[node name="floor_3x_3-n4" parent="Room/Floor" instance=ExtResource("9_cqiwj")]
+[node name="floor_3x_3-n4" parent="Room/Ceiling" instance=ExtResource("9_cqiwj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 3, -4.5)
 mesh = SubResource("ArrayMesh_by115")
 
-[node name="floor_3x_3-n5" parent="Room/Floor" instance=ExtResource("9_cqiwj")]
+[node name="floor_3x_3-n5" parent="Room/Ceiling" instance=ExtResource("9_cqiwj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 3, -1.5)
 mesh = SubResource("ArrayMesh_by115")
 
-[node name="floor_3x_3-n6" parent="Room/Floor" instance=ExtResource("9_cqiwj")]
+[node name="floor_3x_3-n6" parent="Room/Ceiling" instance=ExtResource("9_cqiwj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 3, 1.5)
 mesh = SubResource("ArrayMesh_by115")
 
-[node name="floor_3x_3-n7" parent="Room/Floor" instance=ExtResource("9_cqiwj")]
+[node name="floor_3x_3-n7" parent="Room/Ceiling" instance=ExtResource("9_cqiwj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 3, 4.5)
 mesh = SubResource("ArrayMesh_by115")
 
-[node name="floor_3x_3-n8" parent="Room/Floor" instance=ExtResource("9_cqiwj")]
+[node name="floor_3x_3-n8" parent="Room/Ceiling" instance=ExtResource("9_cqiwj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 3, 4.5)
 mesh = SubResource("ArrayMesh_by115")
 
-[node name="floor_3x_3-n9" parent="Room/Floor" instance=ExtResource("9_cqiwj")]
+[node name="floor_3x_3-n9" parent="Room/Ceiling" instance=ExtResource("9_cqiwj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 3, 1.5)
 mesh = SubResource("ArrayMesh_by115")
 
-[node name="floor_3x_3-n10" parent="Room/Floor" instance=ExtResource("9_cqiwj")]
+[node name="floor_3x_3-n10" parent="Room/Ceiling" instance=ExtResource("9_cqiwj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 3, -1.5)
 mesh = SubResource("ArrayMesh_by115")
 
-[node name="floor_3x_3-n11" parent="Room/Floor" instance=ExtResource("9_cqiwj")]
+[node name="floor_3x_3-n11" parent="Room/Ceiling" instance=ExtResource("9_cqiwj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 3, -4.5)
 mesh = SubResource("ArrayMesh_by115")
 
-[node name="floor_3x_3-n12" parent="Room/Floor" instance=ExtResource("9_cqiwj")]
+[node name="floor_3x_3-n12" parent="Room/Ceiling" instance=ExtResource("9_cqiwj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 3, -1.5)
 mesh = SubResource("ArrayMesh_by115")
 
-[node name="floor_3x_3-n13" parent="Room/Floor" instance=ExtResource("9_cqiwj")]
+[node name="floor_3x_3-n13" parent="Room/Ceiling" instance=ExtResource("9_cqiwj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 3, -4.5)
-mesh = SubResource("ArrayMesh_by115")
-
-[node name="floor_3x_3-n14" parent="Room/Floor" instance=ExtResource("9_cqiwj")]
-transform = Transform3D(1, 0, 0, 0, 1, -1.5033367e-21, 0, -1.5033368e-21, 1, 5.500001, 2.9999995, 1.5000001)
 mesh = SubResource("ArrayMesh_by115")
 
 [node name="Player" parent="." instance=ExtResource("7_mhi0n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6055512, 0)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_cqiwj")
-
-[node name="SceneBuilderTemp" type="Node" parent="."]
